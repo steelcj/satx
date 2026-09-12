@@ -1,0 +1,50 @@
+roles:
+  value:
+  - sat
+  - collection
+  - archive
+  - directory
+  - content
+  overridable: false
+sat_version:
+  value: "<notset>"
+  overridable: false
+children:
+  value:
+  - collection
+  - archive
+  - directory
+  - content
+  overridable: false
+default_metadata:
+  value: "dc-1.1"
+  overridable: false
+  status: planned
+interface_language:
+  value: "en-ca"
+  overridable: false
+  status: planned
+field_kinds:
+  value:
+    dc:
+      publisher: contextual
+      rights: contextual
+      language: contextual
+      creator: contextual
+      contributor: contextual
+      coverage: contextual
+      subject: accumulating
+      title: local
+      description: local
+      date: local
+      type: local
+      format: local
+      source: local
+      relation: local
+      identifier: identity
+    sat:
+      identifier: identity
+      isVersionOf: identity
+      slug: local
+      order: contextual
+  overridable: false

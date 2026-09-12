@@ -1,0 +1,16 @@
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+publisher:
+  value:
+  - SAT
+  overridable: true
+language:
+  value:
+  - "en"
+  overridable: false
+title:
+  value:
+  - Documentation
+  overridable: true

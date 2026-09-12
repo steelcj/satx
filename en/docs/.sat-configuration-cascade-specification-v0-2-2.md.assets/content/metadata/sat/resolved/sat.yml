@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:7d8598d9-2b58-4198-ac23-2d24e07a3c4e"
+isVersionOf:
+  value: "urn:uuid:bf66e60e-9589-42d0-b999-7ae23c7ee34f"
+slug:
+  value: "sat-configuration-cascade-specification"
+  overridable: true

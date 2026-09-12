@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:c34abd90-b81f-43c9-a52c-80d8563a9788"
+isVersionOf:
+  value: "urn:uuid:eb3c9d25-0b28-4ef4-8777-23192ad0dbd5"
+slug:
+  value: "dublin-core-1-1-in-the-sat-archive"
+  overridable: true

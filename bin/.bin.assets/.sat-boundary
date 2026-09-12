@@ -1,0 +1,1 @@
+Commands, by role. Populated by the active sat-tool install; satx does not ship its own copy of bin/, because tooling comes from the installed artifact rather than travelling with the instance. See HANDOVER.md, Toolchain.

@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:6b198d6d-1886-428c-9e84-959f7792bc9b"
+isVersionOf:
+  value: "urn:uuid:fdd1cba3-61de-40a0-ab6f-7df3212d20c9"
+slug:
+  value: "multilingual-ingress-requirements"
+  overridable: true

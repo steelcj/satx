@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:2184d5ac-9cd6-4fc9-ba1e-70d7310454bf"
+isVersionOf:
+  value: "urn:uuid:d1b6d37b-2c56-4d6f-b22c-2630c5e4f263"
+slug:
+  value: "sat-sidecars-config-and-metadata"
+  overridable: true
