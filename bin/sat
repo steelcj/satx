@@ -28,25 +28,63 @@ def _interface_language() -> str:
     return "en-ca"
 
 
+def _path_in_scope(where: str, prefix: str) -> bool:
+    if prefix is None:
+        return True
+    return where == prefix or where.startswith(prefix + "/")
+
+
+def _problem_in_scope(where: str, prefix: str) -> bool:
+    """A root-level problem, most often a missing field_kinds, applies
+    to everything under the root regardless of what was asked about,
+    so `.` always stays in scope for problems even when scoped to one
+    file or directory."""
+    return where == "." or _path_in_scope(where, prefix)
+
+
 def cmd_read(args, _):
     target = Path(args.path).resolve()
-    result = read_archive(target)
+    try:
+        relative = target.relative_to(INSTANCE_ROOT)
+    except ValueError:
+        print(
+            _("error: {target} is not inside the instance at {root}").format(
+                target=target, root=INSTANCE_ROOT
+            ),
+            file=sys.stderr,
+        )
+        return 2
+    prefix = None if str(relative) == "." else str(relative).replace("\\", "/")
 
-    for problem in result["problems"]:
+    # Resolution always walks the whole instance: a node's resolved
+    # values depend on its ancestors, so there is no such thing as
+    # resolving a single file in isolation. Only the report is scoped.
+    result = read_archive(INSTANCE_ROOT)
+
+    problems = [p for p in result["problems"] if _problem_in_scope(p["where"], prefix)]
+    for problem in problems:
         label = _("ERROR") if problem["level"] == "error" else _("warn")
         print(f"{label:>5}  {problem['where']}: {problem['message']}", file=sys.stderr)
 
+    nodes = [n for n in result["nodes"] if _path_in_scope(n["where"], prefix)]
+    in_scope_where = {n["where"] for n in nodes}
+    works = {}
+    for work_id, work in result["works"].items():
+        expressions = [e for e in work["expressions"] if e["where"] in in_scope_where]
+        if expressions:
+            works[work_id] = {"work": work_id, "expressions": expressions}
+
     print()
-    print(_("nodes")+f"   {len(result['nodes'])}")
-    print(_("works")+f"   {len(result['works'])}")
-    for work in result["works"].values():
+    print(_("nodes")+f"   {len(nodes)}")
+    print(_("works")+f"   {len(works)}")
+    for work in works.values():
         print()
         print(f"  {work['work']}")
         for expr in work["expressions"]:
             lang = str(expr["language"]) if expr["language"] else "?"
             print(f"    {lang:<8} {expr['where']}")
 
-    has_errors = any(p["level"] == "error" for p in result["problems"])
+    has_errors = any(p["level"] == "error" for p in problems)
     return 1 if has_errors else 0
 
 

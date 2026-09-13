@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:681373a8-66ce-46ed-827e-23e42063a96b"
+isVersionOf:
+  value: "urn:uuid:4b4c3bd1-4d44-4d98-8096-5ec2aea529c3"
+slug:
+  value: "using-sat-read"
+  overridable: true
