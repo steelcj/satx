@@ -1,0 +1,5 @@
+Virtual environments, keyed by what they serve: venvs/{artifact}/{version}/. Organizing: no sidecar of its own, holds no role, none of it participates in the cascade.
+
+venvs/sat/0.5.0/ serves this prototype's own version of sat, satx/bin and satx/lib as they stand today, at 0.5.0. The path is deliberately shaped to match its eventual installed destination, ~/.local/share/sat-tool/0.5.0/, so promoting it later is a relocation rather than a reshape. A venv for a different purpose, a particular Python build for instance, sits beside it at the same depth: venvs/python/3.13.1/, without bending the scheme.
+
+Dependencies live in requirements.txt at the instance root, not here: that is where a reader looks for them and where the installer will eventually read them. Nothing under venvs/ is committed; each venv is created from that file.
