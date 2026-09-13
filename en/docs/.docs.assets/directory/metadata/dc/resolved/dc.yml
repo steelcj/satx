@@ -1,16 +1,25 @@
+language:
+  value:
+  - "en"
+  overridable: false
 rights:
   value:
   - "AGPL-3.0-or-later"
+  overridable: true
+title:
+  value:
+  - Documentation
   overridable: true
 publisher:
   value:
   - SAT
   overridable: true
-language:
-  value:
-  - "en"
-  overridable: false
-title:
-  value:
-  - Documentation
-  overridable: true
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
+  - value: "urn:uuid:d9c59435-45c7-4316-9cff-d7b273a09e76"
+    overridable: true
+  directory:
+  - value: "urn:uuid:98d50aa6-8802-42b6-bc23-a58853c23a83"
+    overridable: true

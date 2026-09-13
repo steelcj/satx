@@ -2,3 +2,7 @@ language:
   value:
   - "fr"
   overridable: false
+subject:
+  archive:
+  - value: "urn:uuid:61b925b7-6825-4d24-be7d-797d71fc7303"
+    overridable: true

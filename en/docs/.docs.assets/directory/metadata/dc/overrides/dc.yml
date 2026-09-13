@@ -2,3 +2,7 @@ title:
   value:
   - Documentation
   overridable: true
+subject:
+  directory:
+  - value: "urn:uuid:98d50aa6-8802-42b6-bc23-a58853c23a83"
+    overridable: true
