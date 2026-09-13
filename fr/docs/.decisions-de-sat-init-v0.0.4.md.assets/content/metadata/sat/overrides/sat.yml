@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:bbd48345-90d0-4412-bbf9-4a6352d09652"
+isVersionOf:
+  value: "urn:uuid:c223b8f1-d1b4-4831-99bf-6feac567e13e"
+slug:
+  value: "decisions-de-sat-init"
+  overridable: true
