@@ -1,8 +1,12 @@
 # Using sat read
 
-**Version.** v0.0.1, 2026-09-13. Draft.
+**Version.** v0.0.2, 2026-09-13. Supersedes v0.0.1.
 
 **Scope.** How to run `sat read` against a SAT instance: the whole tree, a single directory, a single file, and what the report and exit code mean in each case. Companion to `sat Virtual Environments`, since every example here runs through the venv that document sets up.
+
+## Changes in this version
+
+- **Corrected a stale claim.** `satlib`'s own reported messages are now routed through the translator, with a real `fr/messages/lib/sat-lib.po` catalog, not only `fr/messages/bin/sat-bin.po` as this document previously said.
 
 ## Invoking it
 
@@ -140,7 +144,7 @@ Exit code `2`, distinct from the `1` a resolved-but-broken tree returns.
 
 `nodes` counts every node in scope, roles held by directories as well as files. `works` counts distinct `sat:isVersionOf` values among the content nodes in scope, each followed by its expressions, one line per language, so a work missing a language simply has fewer lines rather than a placeholder. `ERROR` means the resolver could not make sense of something; `warn` means it could, but held a value inert rather than apply it, which is itself information rather than a defect, since that is exactly what a locked field or a deprecated item is supposed to do.
 
-`interface_language` decides which language `ERROR`, `warn`, `nodes`, and `works` themselves print in, not which files are read. `sat-virtual-environments-v0-0-1.md` and `sat-sidecars-config-and-metadata-v0-0-14.md`'s own change note cover where those catalogs live; today only `fr/messages/bin/sat-bin.po` exists, so English is what every example above shows regardless of the instance's own `interface_language` setting.
+`interface_language` decides which language `ERROR`, `warn`, `nodes`, and `works` themselves print in, not which files are read. `sat-virtual-environments-v0-0-1.md` and `sat-sidecars-config-and-metadata-v0-0-14.md`'s own change note cover where those catalogs live; both `fr/messages/bin/sat-bin.po` and `fr/messages/lib/sat-lib.po` exist and are exercised by content/errors/'s own nine problems, translated in full. Every example above still shows English, because that is this instance's own `interface_language` setting, not a limit of what is available.
 
 ## Not yet decided
 

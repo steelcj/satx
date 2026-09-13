@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+
+msgid "no field_kinds declared at the sat root; nothing can be resolved without it"
+msgstr "aucun field_kinds déclaré à la racine sat ; rien ne peut être résolu sans cela"
+
+msgid ".sat-boundary looks like a glob pattern ({pattern!r}), not prose for a human; probably a misunderstanding"
+msgstr ".sat-boundary ressemble à un motif global ({pattern!r}), pas à de la prose pour un humain ; probablement un malentendu"
+
+msgid "archived content outside the cascade: a described node beneath an organizing directory"
+msgstr "contenu archivé hors de la cascade : un nœud décrit sous un répertoire organisateur"
+
+msgid "sidecar carries neither a role folder nor a boundary marker"
+msgstr "le sidecar ne porte ni dossier de rôle ni marqueur de limite"
+
+msgid "unaccounted for: no sidecar and no .sat-boundary"
+msgstr "non comptabilisé : ni sidecar ni .sat-boundary"
+
+msgid "content node has no sat:identifier"
+msgstr "le nœud de contenu n'a pas de sat:identifier"
+
+msgid "sat:identifier is not a urn:uuid: {identifier}"
+msgstr "sat:identifier n'est pas un urn:uuid : {identifier}"
+
+msgid "sat:identifier is not unique; also {other}"
+msgstr "sat:identifier n'est pas unique ; voir aussi {other}"
+
+msgid "content node has no sat:isVersionOf"
+msgstr "le nœud de contenu n'a pas de sat:isVersionOf"
+
+msgid "sat:isVersionOf is not a urn:uuid: {work}"
+msgstr "sat:isVersionOf n'est pas un urn:uuid : {work}"
+
+msgid "duplicate language \"{language}\" for this work; also {other}"
+msgstr "langue en double « {language} » pour cette œuvre ; voir aussi {other}"
+
+msgid "instance root has no sidecar role folder"
+msgstr "la racine de l'instance n'a pas de dossier de rôle dans son sidecar"
+
+msgid "no declared kind for {namespace}:{field}. Declare it in field_kinds at the sat root, or correct the element name."
+msgstr "aucun type déclaré pour {namespace}:{field}. Déclarez-le dans field_kinds à la racine sat, ou corrigez le nom de l'élément."
+
+msgid "\"{name}\" is locked upstream; override held but not applied"
+msgstr "« {name} » est verrouillé en amont ; la redéfinition est retenue mais non appliquée"
+
+msgid "{authoring_role} wrote into the {role} row, which outranks it"
+msgstr "{authoring_role} a écrit dans la ligne {role}, qui le surclasse"
+
+msgid "\"{value}\" is locked in the {role} row; held, not applied"
+msgstr "« {value} » est verrouillé dans la ligne {role} ; retenu, non appliqué"
+
+msgid "{amending_role} cannot amend the {target_role} row"
+msgstr "{amending_role} ne peut pas amender la ligne {target_role}"
+
+msgid "amend targets an empty {target_role} row: {matches}"
+msgstr "l'amendement cible une ligne {target_role} vide : {matches}"
+
+msgid "amend matches nothing in the {target_role} row: {match}"
+msgstr "l'amendement ne correspond à rien dans la ligne {target_role} : {match}"

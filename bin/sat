@@ -62,7 +62,10 @@ def cmd_read(args, _):
     # Resolution always walks the whole instance: a node's resolved
     # values depend on its ancestors, so there is no such thing as
     # resolving a single file in isolation. Only the report is scoped.
-    result = read_archive(INSTANCE_ROOT)
+    # satlib's own messages are a separate catalog domain ("lib") from
+    # this dispatcher's own strings ("bin"), so it gets its own
+    # translator rather than reusing _.
+    result = read_archive(INSTANCE_ROOT, translate=_lib)
 
     problems = [p for p in result["problems"] if _problem_in_scope(p["where"], prefix)]
     for problem in problems:
@@ -104,8 +107,10 @@ def cmd_init(args, _):
 
 
 def main(argv=None):
-    global _
-    _ = translator_for(INSTANCE_ROOT, _interface_language(), "bin")
+    global _, _lib
+    language = _interface_language()
+    _ = translator_for(INSTANCE_ROOT, language, "bin")
+    _lib = translator_for(INSTANCE_ROOT, language, "lib")
 
     parser = argparse.ArgumentParser(prog="sat")
     sub = parser.add_subparsers(dest="command", required=True)

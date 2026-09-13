@@ -1,13 +1,17 @@
 """A minimal gettext-alike: no shelling out to msgfmt, no compiled
 .mo files, just a small pure-Python .po reader.
 
-satx: shape and purpose, The scripts, rules out shelling out to
-external commands, and stdlib gettext needs a compiled .mo, which
-normally comes from msgfmt. Our catalogs are small (a handful of CLI
-and report strings), so a direct .po reader is simpler and dependency-
-free than vendoring a compiler for a format we can just parse.
+STOPGAP, not a destination. satx: shape and purpose, The scripts,
+rules out shelling out to external commands, and stdlib gettext needs
+a compiled .mo, which normally comes from msgfmt. This reader is what
+that leaves: msgid/msgstr pairs and a fallback to English, nothing
+else. Real gettext gives plural forms, message contexts, and
+`msgmerge` to carry translations forward when a source string changes;
+none of those exist here. Adopt real gettext, or a pure-Python library
+that implements it properly, before this instance's catalogs grow past
+a handful of flat strings -- see NEXT.md.
 
-Catalog location: SAT Sidecars: Config and Metadata v0.0.13, Interface
+Catalog location: SAT Sidecars: Config and Metadata v0.0.14, Interface
 translations are not archived content -- {lang}/messages/{domain}/,
 one domain per piece of software, bin and lib today.
 """
@@ -79,3 +83,28 @@ def translator_for(instance_root: Path, language: str, domain: str) -> Translato
         return Translator({})
     po_path = instance_root / base / "messages" / domain / f"sat-{domain}.po"
     return Translator(load_po(po_path))
+
+
+def identity(message: str) -> str:
+    """The no-op translator. Returns the English source text (the
+    msgid) unchanged; used as report()'s default so every internal
+    satlib caller keeps working before it has threaded a real
+    translator through."""
+    return message
+
+
+def report(problems: list, level: str, where: str, translate, template: str, **kwargs) -> None:
+    """Appends one problem to `problems`, translating `template` --
+    the English source string, the msgid -- before filling in
+    `kwargs`. Translating before formatting is what keeps the catalog
+    entry the static template rather than one entry per interpolated
+    value: "sat:identifier is not a urn:uuid: {identifier}" is one
+    msgid regardless of how many different identifiers ever appear
+    there. `translate` may be None, in which case the message is left
+    in English.
+    """
+    translate = translate or identity
+    message = translate(template)
+    if kwargs:
+        message = message.format(**kwargs)
+    problems.append({"level": level, "where": where, "message": message})
