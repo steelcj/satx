@@ -1,33 +1,12 @@
 # SAT Sidecars: Config and Metadata
 
-**Version.** v0.0.12, 2026-09-10. Supersedes v0.0.11.
+**Version.** v0.0.13, 2026-09-12. Supersedes v0.0.12.
 
 **Scope.** The two sidecar trees a SAT node carries, side by side. Config is presented first because it is further along, and the metadata tree is specified against it so the differences are visible rather than inferred.
 
 ## Changes in this version
 
-Everything here came from reading the configuration cascade specification and asking what carries across and what does not.
-
-- **Three state questions answered from config.** `resolved/` materialises at every node, a node with nothing to say still resolves, and `resolved/` at one node equals `defaults/` at the next.
-- **One resolver, not two.** Config states it and this document now says it plainly: the trees differ in path shape, not in what composition does.
-- **Added a field-kind table for metadata,** parallel to config's. This is the substantive addition, and it is where the two trees genuinely diverge.
-- **Added accumulating fields.** `subject` unions with what it receives rather than replacing it, using the `merge` key config already proposes for list-valued fields.
-- **Seeding is inverted for metadata,** and derived values are proposals an editor confirms.
-- **Field kinds are declared in configuration,** not built into the resolver, so a namespace can be added without a code change.
-- **Every namespace materialises at every node,** which configuration already settled and this document had left open.
-- **Identity is minted, not seeded.** The authority to mint cascades by role.
-- **`status` is carried and reported, with no behaviour behind it** for now.
-- **The subject chain includes the archive,** as a prompted proposal like every other inherited subject.
-- **Accumulating fields are rows keyed by role,** each item carrying its own `overridable`. This replaces the earlier flat list and its `merge: append` rule, which could not express provenance.
-- **A tier may place a value in a row below its own,** which is how delegation is stated. The row is the target; no targeting syntax is needed for placement.
-- **`status: deprecated` removes an item from the resolved set** while keeping it in the record. This is `status`'s first behaviour, and it supersedes the earlier ruling that nothing conditions on it.
-- **`resolved/` records who amended an item,** not only who holds it.
-- **Reviving a deprecated item is an amendment,** so only a role above the one that deprecated it may do so.
-- **Authority is administrative rather than monotonic.** Locking and deprecation are the same kind of act, and the earlier description of a lock as advisory is withdrawn.
-- **Editorial.** Contrasts with earlier drafts of this document are removed from the body. Contrasts with configuration, with slug-derived subjects, and with front matter remain, because those explain the product rather than the drafting.
-- **A higher role may amend a lower row,** including unlocking what a lower tier locked and sending a decision back for reconsideration. This departs from configuration's monotonic rule, deliberately.
-- **Organizing directories are permitted anywhere and hold no archived content.** The earlier rule scoped them to the SAT instance, which forbade a legitimate and useful case.
-- **Organizing directories are scoped to the SAT instance,** and never appear inside a collection or an archive. Added a section on interface translations, which are software resources rather than archived content.
+- **Interface catalogs move into the language archive they serve.** `en-ca/messages/`, not `lib/locale/{lang}/`. Building `satx` from the previous ruling surfaced the conflict: `satx-shape-and-purpose` had already placed catalogs inside each archive, on the correct reading that a catalog is per-language material rather than software. The organizing-directory ruling and the no-sidecar, no-work test are unchanged; only where a catalog sits is corrected. The template, `sat.pot`, stays with the software at `lib/locale/`, since it names no language.
 
 **Note on `{node}`.** Both trees use `{node}` where earlier drafts used `{level}`. The vocabulary already defines *node name* as exactly what that segment holds, and *level* was a leftover from the walkthrough drafts, where it described a rung in the cascade rather than a name on disk. The rename lands here in one pass across both trees.
 
@@ -352,17 +331,21 @@ A message catalog is not a translation of a document. It is a lookup table keyed
 
 The distinction is already in the configuration vocabulary: `interface_language` is a separate field from a resource's `language`, because they answer different questions. The file layout follows the same split.
 
-Catalogs live inside the organizing directory that holds the software, with no sidecars, no works, and no Dublin Core:
+`[D]` Catalogs live inside an organizing directory nested in the language archive whose readers they serve, not inside the directory that holds the software. Each archive already organizes what is addressed to one language's readers, and a catalog is exactly that: no sidecars, no works, no Dublin Core.
 
 ```
+en-ca/
+  messages/
+    LC_MESSAGES/sat.po
+fr-ca/
+  messages/
+    LC_MESSAGES/sat.po
 lib/
   locale/
-    en-ca/LC_MESSAGES/sat.po
-    fr-ca/LC_MESSAGES/sat.po
     sat.pot
 ```
 
-A path like `en-ca/bin/example.po` would invert the relationship, putting software inside a language archive when the instance contains the archive rather than the other way round, and would imply each catalog is an expression of a work.
+This corrects an earlier ruling in this document, which placed every catalog under `lib/locale/{lang}/`. That ruling read a general worry, that software does not belong inside a language archive, as though it also covered catalogs, and it does not. `en-ca/bin/example.po` is still wrong, for the reason already given: a script or a library is not addressed to a language's readers, and does not become one by sitting in their archive. A catalog is addressed to nothing else, and placing it where its language's own material already lives does not make it archived content, because the test for that was never location. It carries no sidecar, states no work, mints no identifier: an organizing directory nested inside described territory, the same shape `en/messages/` already exercises in `satx`. The template, `sat.pot`, names no language and is extracted from the software's own source strings, so it stays with the software at `lib/locale/`, where `msgmerge` finds it when a catalog needs updating.
 
 The argument for leaving them out of the work model is more than tidiness. Gettext already solves what the work model would have to rebuild: `msgmerge` handles a source string changing, `.pot` is the template, and fuzzy matching flags entries needing review. That is translation drift machinery, mature and specific to message catalogs, and reimplementing it would tangle two kinds of translation that behave differently.
 

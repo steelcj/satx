@@ -1,19 +1,12 @@
 # satx: Shape and Purpose
 
-**Version.** v0.0.7, 2026-09-11. Draft. Supersedes v0.0.6.
+**Version.** v0.0.8, 2026-09-12. Draft. Supersedes v0.0.7.
 
-**Scope.** What `satx` is for, what it contains, and the constraints on the scripts that build and read it. `satx` is the testing SAT instance: complete, small, and kept apart from production. Companion to *SAT Sidecars: Config and Metadata* v0.0.12, which specifies the shapes this instance is built to.
+**Scope.** What `satx` is for, what it contains, and the constraints on the scripts that build and read it. `satx` is the testing SAT instance: complete, small, and kept apart from production. Companion to *SAT Sidecars: Config and Metadata* v0.0.13, which specifies the shapes this instance is built to.
 
 ## Changes in this version
 
-- **Organizing directories declare themselves** with a `.sat-boundary` marker inside their sidecar. Absence of a sidecar becomes an error rather than a meaning. The marker is named for what it does, since ending a cascade is the behaviour and organizing is only one reason to want it.
-- **`ruamel.yaml` is settled, with the modern `YAML()` API,** and the two settings its correct use depends on are recorded.
-- **`satx/en/docs` holds the documents needed to understand `satx`,** including this one. The instance carries its own specification as archived content.
-- **The toolchain is recorded,** including which part of cross platform support is solved and which is not.
-- **`satx` is standalone,** a sibling of SAT and of the website repository rather than living inside either.
-- **The instance is named `satx`.** Short, sorts beside `sat`, and could not be mistaken for production.
-- **`satx/en` carries no region,** deliberately. One English documentation set and one set of catalogs, for speed of translation.
-- **The instance holds a collection of collections,** one of correct material and one built to fail. That answers whether the fixture carries real text by not having to choose.
+- **Corrected the companion reference.** *SAT Sidecars: Config and Metadata* moved to v0.0.13, which corrects catalog placement to match the tree already shown here: `en/messages/`, `fr/messages/`, not `lib/locale/{lang}/`. That tree was right when it was written; the sidecar document had not yet caught up to it.
 
 ## Two jobs, one artifact
 

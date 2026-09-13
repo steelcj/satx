@@ -1,10 +1,22 @@
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+publisher:
+  value:
+  - SAT
+  overridable: true
+language:
+  value:
+  - "en"
+  overridable: false
 title:
   value:
   - 'satx: Shape and Purpose'
   overridable: true
 date:
   value:
-  - '2026-09-11'
+  - '2026-09-12'
   overridable: true
 type:
   value:
