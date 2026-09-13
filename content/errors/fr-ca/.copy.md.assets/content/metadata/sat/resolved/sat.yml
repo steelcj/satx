@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:2a16de7e-6e26-4f3b-9e90-69100a882758"
+isVersionOf:
+  value: "urn:uuid:ab3af61b-25ec-488a-9595-e1956902cf72"
+slug:
+  value: "copy"
+  overridable: true

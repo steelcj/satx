@@ -1,0 +1,12 @@
+language:
+  value:
+  - "fr-ca"
+  overridable: false
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: false
+subject:
+  sat:
+  - value: "urn:uuid:c6b52a27-3ac7-4a97-8b7d-e7d8ebf0b4ec"
+    overridable: true

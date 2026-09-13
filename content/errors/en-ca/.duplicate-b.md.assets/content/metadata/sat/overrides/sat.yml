@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:f1a22f0b-3031-4c5b-9b5a-2a079cdb3104"
+isVersionOf:
+  value: "urn:uuid:5c9075de-8f1b-4914-a776-2f2f3fc531e0"
+slug:
+  value: "duplicate-b"
+  overridable: true

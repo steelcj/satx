@@ -1,0 +1,16 @@
+titel:
+  value:
+  - A Field Name With A Typo
+  overridable: true
+date:
+  value:
+  - '2026-09-12'
+  overridable: true
+type:
+  value:
+  - Text
+  overridable: true
+format:
+  value:
+  - text/markdown
+  overridable: true

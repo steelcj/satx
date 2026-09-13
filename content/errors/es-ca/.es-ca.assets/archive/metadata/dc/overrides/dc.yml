@@ -1,0 +1,13 @@
+language:
+  value:
+  - "es-ca"
+  overridable: false
+subject:
+  directory:
+  - value: "urn:uuid:30082cad-3de3-476b-b880-efccbd311050"
+    overridable: true
+amend:
+  directory:
+    subject:
+    - match: "urn:uuid:aad00a38-3d35-4ec2-8499-0bc5bcd301f4"
+      status: deprecated

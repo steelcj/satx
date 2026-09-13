@@ -1,0 +1,28 @@
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+language:
+  value:
+  - "en-ca"
+  overridable: false
+type:
+  value:
+  - Text
+  overridable: true
+publisher:
+  value:
+  - SAT
+  overridable: true
+date:
+  value:
+  - '2026-09-12'
+  overridable: true
+format:
+  value:
+  - text/markdown
+  overridable: true
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true

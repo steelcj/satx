@@ -1,0 +1,19 @@
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+language:
+  value:
+  - "es-ca"
+  overridable: false
+publisher:
+  value:
+  - SAT
+  overridable: true
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
+  directory:
+  - value: "urn:uuid:30082cad-3de3-476b-b880-efccbd311050"
+    overridable: true

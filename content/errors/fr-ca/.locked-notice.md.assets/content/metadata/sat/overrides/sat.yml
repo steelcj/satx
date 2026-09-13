@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:337cc735-646c-46a1-9e80-964def3eee91"
+isVersionOf:
+  value: "urn:uuid:7c58ab8c-d21b-4da4-9ece-c6ca5162ece0"
+slug:
+  value: "locked-notice"
+  overridable: true
