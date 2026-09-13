@@ -15,9 +15,9 @@ RANK = {role: index for index, role in enumerate(ROLES)}
 # since it always states its own children and seeds each child role it
 # permits, per "One author folder per role held".
 CHILDREN = {
-    "sat": ["collection", "archive", "directory", "content"],
+    "sat": ["collection", "archive"],
     "collection": ["collection", "archive"],
-    "archive": ["directory"],
+    "archive": ["directory", "content"],
     "directory": ["directory", "content"],
     "content": [],
 }

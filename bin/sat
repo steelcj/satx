@@ -4,8 +4,10 @@ per satx-shape-and-purpose-v0-0-8.md and this session's own ruling on
 messages/, only the prompts and feedback a command prints translate,
 driven by the instance's interface_language.
 
-Today this dispatches only `sat read`, the reader satx/en/docs calls
-for. `sat init` and the rest come later.
+Today this dispatches `sat read`, and `sat init` scoped to exactly
+HANDOVER's own test: a bare new instance, nothing beneath it yet.
+Collection, archive, directory and content creation, and any
+preseed-driven bulk creation, are deliberately deferred.
 """
 import argparse
 import sys
@@ -15,6 +17,7 @@ INSTANCE_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(INSTANCE_ROOT / "lib"))
 
 from satlib.archive import read_archive  # noqa: E402
+from satlib.create import init_instance  # noqa: E402
 from satlib.i18n import translator_for  # noqa: E402
 from satlib.nodes import config_path  # noqa: E402
 from satlib.yamlio import read_yaml  # noqa: E402
@@ -88,6 +91,18 @@ def cmd_read(args, _):
     return 1 if has_errors else 0
 
 
+def cmd_init(args, _):
+    target = Path(args.path).resolve()
+    print(_("Creating a new SAT instance at {path}").format(path=target))
+    try:
+        init_instance(target, _)
+    except FileExistsError as exc:
+        print(_("error: {message}").format(message=exc), file=sys.stderr)
+        return 2
+    print(_("Run `sat read {path}` to check it.").format(path=args.path))
+    return 0
+
+
 def main(argv=None):
     global _
     _ = translator_for(INSTANCE_ROOT, _interface_language(), "bin")
@@ -98,6 +113,10 @@ def main(argv=None):
     read_parser = sub.add_parser("read", help=_("Resolve a SAT tree and report what it finds"))
     read_parser.add_argument("path", nargs="?", default=".")
     read_parser.set_defaults(func=cmd_read)
+
+    init_parser = sub.add_parser("init", help=_("Create a new, bare SAT instance"))
+    init_parser.add_argument("path")
+    init_parser.set_defaults(func=cmd_init)
 
     args = parser.parse_args(argv)
     return args.func(args, _)

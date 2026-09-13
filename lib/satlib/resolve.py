@@ -152,11 +152,22 @@ def compose_namespace(
     authoring_role: str,
     where: str,
     problems: list,
+    same_node: bool = False,
 ) -> dict:
     """One namespace at one node. `received` is the parent's descending
     output for this namespace; `local_plain` is this node's own stated
     fields excluding accumulating ones; `local_rows` and `amend` cover
-    the namespace's one accumulating field, `subject`, if any."""
+    the namespace's one accumulating field, `subject`, if any.
+
+    `same_node` is True when `received` is not an ancestor's output but
+    an earlier role's own resolved output at this same multi-role node
+    -- sat-configuration-cascade-specification-v0-2-2.md, One author
+    folder per role held: "A multi-role node writes one layer per role
+    it holds, and those layers resolve in role order." A local or
+    identity field a later role does not restate is still this node's
+    own value in that case, not an ancestor's leaking through, so it
+    carries forward rather than being dropped.
+    """
     resolved = {}
     names = (set(received) | set(local_plain)) - {"subject"}
     for name in names:
@@ -167,11 +178,13 @@ def compose_namespace(
             continue
 
         if kind in ("local", "identity"):
-            # Never received: a value reaching here from `received`
-            # means the parent's descending() filter failed upstream,
-            # so it is dropped rather than trusted.
             if name in local_plain:
                 resolved[name] = dict(local_plain[name])
+            elif same_node and name in received:
+                resolved[name] = dict(received[name])
+            # Otherwise never received: a value reaching here from an
+            # ancestor's `received` means its descending() filter
+            # failed upstream, so it is dropped rather than trusted.
             continue
 
         # contextual

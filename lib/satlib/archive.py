@@ -147,7 +147,7 @@ def _resolve_node(root, node_path, is_dir, ancestors_resolved, field_kinds, prob
     resolved_by_ns = {}
     for namespace in namespaces:
         received = (ancestors_resolved or {}).get(namespace, {})
-        for role in roles:
+        for index, role in enumerate(roles):
             local_doc = read_yaml(metadata_path(node_path, is_dir, role, namespace, "overrides")) or {}
             local_rows = local_doc.get("subject", {}) if namespace != "sat" else {}
             amend = local_doc.get("amend", {})
@@ -155,6 +155,7 @@ def _resolve_node(root, node_path, is_dir, ancestors_resolved, field_kinds, prob
             step = compose_namespace(
                 field_kinds, namespace, received, local_plain, local_rows, amend,
                 authoring_role=role, where=where, problems=problems,
+                same_node=(index > 0),
             )
             received = step
         resolved_by_ns[namespace] = received
