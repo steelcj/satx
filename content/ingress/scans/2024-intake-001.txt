@@ -1,0 +1,3 @@
+Stand-in for a scanned original capture. A real intake would hold an
+image or PDF here; this fixture holds a text placeholder instead,
+since the point is the file's place in the tree, not its bytes.
