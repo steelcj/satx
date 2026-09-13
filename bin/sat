@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""sat -- the dispatcher. Command names are the same in every language;
+per satx-shape-and-purpose-v0-0-8.md and this session's own ruling on
+messages/, only the prompts and feedback a command prints translate,
+driven by the instance's interface_language.
+
+Today this dispatches only `sat read`, the reader satx/en/docs calls
+for. `sat init` and the rest come later.
+"""
+import argparse
+import sys
+from pathlib import Path
+
+INSTANCE_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(INSTANCE_ROOT / "lib"))
+
+from satlib.archive import read_archive  # noqa: E402
+from satlib.i18n import translator_for  # noqa: E402
+from satlib.nodes import config_path  # noqa: E402
+from satlib.yamlio import read_yaml  # noqa: E402
+
+
+def _interface_language() -> str:
+    for state in ("resolved", "overrides", "defaults"):
+        doc = read_yaml(config_path(INSTANCE_ROOT, True, "sat", "sat", state))
+        if doc and doc.get("interface_language", {}).get("value"):
+            return doc["interface_language"]["value"]
+    return "en-ca"
+
+
+def cmd_read(args, _):
+    target = Path(args.path).resolve()
+    result = read_archive(target)
+
+    for problem in result["problems"]:
+        label = _("ERROR") if problem["level"] == "error" else _("warn")
+        print(f"{label:>5}  {problem['where']}: {problem['message']}", file=sys.stderr)
+
+    print()
+    print(_("nodes")+f"   {len(result['nodes'])}")
+    print(_("works")+f"   {len(result['works'])}")
+    for work in result["works"].values():
+        print()
+        print(f"  {work['work']}")
+        for expr in work["expressions"]:
+            lang = str(expr["language"]) if expr["language"] else "?"
+            print(f"    {lang:<8} {expr['where']}")
+
+    has_errors = any(p["level"] == "error" for p in result["problems"])
+    return 1 if has_errors else 0
+
+
+def main(argv=None):
+    global _
+    _ = translator_for(INSTANCE_ROOT, _interface_language(), "bin")
+
+    parser = argparse.ArgumentParser(prog="sat")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    read_parser = sub.add_parser("read", help=_("Resolve a SAT tree and report what it finds"))
+    read_parser.add_argument("path", nargs="?", default=".")
+    read_parser.set_defaults(func=cmd_read)
+
+    args = parser.parse_args(argv)
+    return args.func(args, _)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

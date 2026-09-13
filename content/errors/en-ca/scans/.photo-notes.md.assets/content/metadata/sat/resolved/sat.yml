@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:445249c2-674f-4ebd-9d10-54e68a621722"
+isVersionOf:
+  value: "urn:uuid:de5be772-c43b-4ece-90e0-1beda3a7c1f3"
+slug:
+  value: "photo-notes"
+  overridable: true

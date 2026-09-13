@@ -1,1 +1,3 @@
-Commands, by role. Populated by the active sat-tool install; satx does not ship its own copy of bin/, because tooling comes from the installed artifact rather than travelling with the instance. See HANDOVER.md, Toolchain.
+Commands, by role. Organizing: no sidecar of its own, holds no role, none of it participates in the cascade.
+
+sat is prototyped here rather than installed here. satx is becoming the new SAT prototype, so bin/ holds the actual dispatcher scripts under development, in the tree the specifications describe, rather than being populated by a separate installed artifact the way a shipped instance eventually will be. See HANDOVER.md and .claude/session logs for how this changed.

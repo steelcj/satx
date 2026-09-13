@@ -1,1 +1,3 @@
-Libraries, by role. Populated by the active sat-tool install, same as bin/. Per SAT Sidecars: Config and Metadata v0.0.13, this is where the language-neutral catalog template lives, lib/locale/sat.pot, once sat's interface strings are extracted from the Python source; each language's translated catalog lives in that language's own archive instead, at {lang}/messages/ (see en/messages/).
+Libraries, by role. Organizing: no sidecar of its own, holds no role, none of it participates in the cascade.
+
+satlib, the resolver bin/ dispatches to, is prototyped here rather than installed here, for the same reason bin/ is: satx is becoming the new SAT prototype. Per SAT Sidecars: Config and Metadata v0.0.13, this is also where the language-neutral catalog template lives, lib/locale/sat.pot, once one is extracted; each language's translated catalog lives in that language's own archive instead, at {lang}/messages/ (see en/messages/).

@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+
+msgid "ERROR"
+msgstr "ERREUR"
+
+msgid "warn"
+msgstr "avert"
+
+msgid "nodes"
+msgstr "noeuds"
+
+msgid "works"
+msgstr "oeuvres"
+
+msgid "Resolve a SAT tree and report what it finds"
+msgstr "Résout un arbre SAT et rapporte ce qu'il trouve"
