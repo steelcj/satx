@@ -1,0 +1,4 @@
+Organizing: no sidecar of its own, holds no role, none of it participates in the cascade.
+
+artifacts/ holds superseded drafts, kept for history rather than deleted: earlier
+versions of documents whose current revision lives directly under en/docs/.

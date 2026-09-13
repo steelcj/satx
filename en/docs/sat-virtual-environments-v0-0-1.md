@@ -6,7 +6,7 @@
 
 ## Why a venv at all
 
-`satlib` reads and writes YAML, and Python carries no YAML support in its standard library. A parser has to come from somewhere, and it has to be the right one: `sat-sidecars-config-and-metadata-v0-0-13.md` and `sat-configuration-cascade-specification-v0-2-2.md` both make YAML 1.2 a correctness requirement rather than a preference, because YAML 1.1 treats `no` as a boolean as well as the ISO 639-1 code for Norwegian, and a Norwegian language key parses to `false` with nothing visible in the file. `ruamel.yaml`, run in its 1.2 mode, is the dependency this project has settled on. PyYAML is not an alternative; it implements YAML 1.1 only.
+`satlib` reads and writes YAML, and Python carries no YAML support in its standard library. A parser has to come from somewhere, and it has to be the right one: `sat-sidecars-config-and-metadata-v0-0-14.md` and `sat-configuration-cascade-specification-v0-2-2.md` both make YAML 1.2 a correctness requirement rather than a preference, because YAML 1.1 treats `no` as a boolean as well as the ISO 639-1 code for Norwegian, and a Norwegian language key parses to `false` with nothing visible in the file. `ruamel.yaml`, run in its 1.2 mode, is the dependency this project has settled on. PyYAML is not an alternative; it implements YAML 1.1 only.
 
 A dependency that comes from outside the standard library needs somewhere to be installed that will not collide with whatever else is on the machine running `sat`, and that is what a virtual environment is for. `sat` is not the only thing that might be installed on a given system, and pinning `ruamel.yaml` into the system Python would make every other Python program on that machine answer to `sat`'s version of it.
 
@@ -31,7 +31,7 @@ venvs/
 
 `venvs/sat/0.5.0/` is the venv this version of `sat` runs in. A venv for a different purpose, a particular Python build to test against, for instance, sits beside it at the same depth rather than bending the scheme to fit: `venvs/python/3.13.1/`, not a special case grafted on afterward.
 
-`venvs/` is organizing, per `sat-sidecars-config-and-metadata-v0-0-13.md`'s list of what belongs beneath a marker: binaries and compiled artifacts, and working files that are not, and may never be, resources. A venv is exactly that. It carries no sidecar of its own beneath the boundary, states no work, and nothing inside it participates in the cascade.
+`venvs/` is organizing, per `sat-sidecars-config-and-metadata-v0-0-14.md`'s list of what belongs beneath a marker: binaries and compiled artifacts, and working files that are not, and may never be, resources. A venv is exactly that. It carries no sidecar of its own beneath the boundary, states no work, and nothing inside it participates in the cascade.
 
 ## requirements.txt names what goes in it
 

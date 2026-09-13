@@ -1,12 +1,12 @@
 # satx: Shape and Purpose
 
-**Version.** v0.0.8, 2026-09-12. Draft. Supersedes v0.0.7.
+**Version.** v0.0.9, 2026-09-13. Draft. Supersedes v0.0.8.
 
-**Scope.** What `satx` is for, what it contains, and the constraints on the scripts that build and read it. `satx` is the testing SAT instance: complete, small, and kept apart from production. Companion to *SAT Sidecars: Config and Metadata* v0.0.13, which specifies the shapes this instance is built to.
+**Scope.** What `satx` is for, what it contains, and the constraints on the scripts that build and read it. `satx` is the testing SAT instance: complete, small, and kept apart from production. Companion to *SAT Sidecars: Config and Metadata* v0.0.14, which specifies the shapes this instance is built to.
 
 ## Changes in this version
 
-- **Corrected the companion reference.** *SAT Sidecars: Config and Metadata* moved to v0.0.13, which corrects catalog placement to match the tree already shown here: `en/messages/`, `fr/messages/`, not `lib/locale/{lang}/`. That tree was right when it was written; the sidecar document had not yet caught up to it.
+- **Corrected the companion reference again.** *SAT Sidecars: Config and Metadata* moved to v0.0.14, folding in the rulings `sat-init-decisions` had recorded separately: the instance root's two roles, identity carried in a multi-role node's highest-ranking layer, accepting an inherited value writing nothing, and the rest. Nothing here changed; only the document this one points to did.
 
 ## Two jobs, one artifact
 

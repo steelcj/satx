@@ -36,7 +36,7 @@ works   20
     en       en/docs/sat-virtual-environments-v0-0-1.md
 
   urn:uuid:86a3e502-4ca2-4a55-9d4a-8eeaeed37897
-    en       en/docs/satx-shape-and-purpose-v0-0-8.md
+    en       en/docs/satx-shape-and-purpose-v0-0-9.md
     fr       fr/docs/satx-forme-et-objectif-v0-0-8.md
 ```
 
@@ -140,7 +140,7 @@ Exit code `2`, distinct from the `1` a resolved-but-broken tree returns.
 
 `nodes` counts every node in scope, roles held by directories as well as files. `works` counts distinct `sat:isVersionOf` values among the content nodes in scope, each followed by its expressions, one line per language, so a work missing a language simply has fewer lines rather than a placeholder. `ERROR` means the resolver could not make sense of something; `warn` means it could, but held a value inert rather than apply it, which is itself information rather than a defect, since that is exactly what a locked field or a deprecated item is supposed to do.
 
-`interface_language` decides which language `ERROR`, `warn`, `nodes`, and `works` themselves print in, not which files are read. `sat-virtual-environments-v0-0-1.md` and `sat-sidecars-config-and-metadata-v0-0-13.md`'s own change note cover where those catalogs live; today only `fr/messages/bin/sat-bin.po` exists, so English is what every example above shows regardless of the instance's own `interface_language` setting.
+`interface_language` decides which language `ERROR`, `warn`, `nodes`, and `works` themselves print in, not which files are read. `sat-virtual-environments-v0-0-1.md` and `sat-sidecars-config-and-metadata-v0-0-14.md`'s own change note cover where those catalogs live; today only `fr/messages/bin/sat-bin.po` exists, so English is what every example above shows regardless of the instance's own `interface_language` setting.
 
 ## Not yet decided
 
