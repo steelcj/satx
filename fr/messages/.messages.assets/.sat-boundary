@@ -1,0 +1,1 @@
+Organizing directory nested inside a described archive, mirroring en/messages/. Holds this language's interface message catalog (a gettext .po file), once one exists, per SAT Sidecars: Config and Metadata v0.0.13. Empty for now: sat's interface strings are still in the Python source and have not been extracted.

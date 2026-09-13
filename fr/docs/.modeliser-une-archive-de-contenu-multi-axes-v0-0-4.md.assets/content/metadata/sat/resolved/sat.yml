@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:6cb3c79e-6195-4425-a8ea-b6f69ffbeab9"
+isVersionOf:
+  value: "urn:uuid:2fd7dcc0-479e-4a5a-9cdb-d4d8d1db0923"
+slug:
+  value: "modeliser-une-archive-de-contenu-multi-axes"
+  overridable: true

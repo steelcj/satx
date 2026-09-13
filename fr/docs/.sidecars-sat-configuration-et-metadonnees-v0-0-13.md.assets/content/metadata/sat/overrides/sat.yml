@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:8dfec6f6-9459-43b6-afbd-abbe9c203333"
+isVersionOf:
+  value: "urn:uuid:d1b6d37b-2c56-4d6f-b22c-2630c5e4f263"
+slug:
+  value: "sidecars-sat-configuration-et-metadonnees"
+  overridable: true
