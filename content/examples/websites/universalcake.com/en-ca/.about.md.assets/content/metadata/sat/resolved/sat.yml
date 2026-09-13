@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:125bca38-b92d-496d-b166-659f2ccca94e"
+isVersionOf:
+  value: "urn:uuid:78f2394a-cbc0-47f0-ab47-de35baff294d"
+slug:
+  value: "about"
+  overridable: true

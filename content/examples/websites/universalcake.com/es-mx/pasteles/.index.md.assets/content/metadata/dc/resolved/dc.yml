@@ -1,0 +1,44 @@
+publisher:
+  value:
+  - Universal Cake Co.
+  overridable: true
+date:
+  value:
+  - '2026-09-12'
+  overridable: true
+rights:
+  value:
+  - "© Universal Cake Co. All rights reserved."
+  overridable: true
+format:
+  value:
+  - text/markdown
+  overridable: true
+type:
+  value:
+  - Text
+  overridable: true
+title:
+  value:
+  - Pasteles
+  overridable: true
+creator:
+  value:
+  - Universal Cake Co.
+  overridable: true
+language:
+  value:
+  - "es-mx"
+  overridable: false
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
+    status: deprecated
+    amendedBy:
+    - collection
+  directory:
+  - value: "urn:uuid:1b71de96-4100-410e-b94d-a7663e988f7f"
+    overridable: true
+  - value: "urn:uuid:1ddb0ddb-e39c-4cc4-8afe-a5858f74f4a3"
+    overridable: false

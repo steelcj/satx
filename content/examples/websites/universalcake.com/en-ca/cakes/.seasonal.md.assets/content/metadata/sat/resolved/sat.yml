@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:99ba51d0-bd3c-4528-83c9-cc7fed37d8a3"
+isVersionOf:
+  value: "urn:uuid:0e82164f-999c-4fed-8964-90c1db1e1a14"
+slug:
+  value: "seasonal"
+  overridable: true

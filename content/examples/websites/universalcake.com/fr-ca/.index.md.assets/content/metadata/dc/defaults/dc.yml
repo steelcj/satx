@@ -1,0 +1,22 @@
+publisher:
+  value:
+  - Universal Cake Co.
+  overridable: true
+rights:
+  value:
+  - "© Universal Cake Co. All rights reserved."
+  overridable: true
+language:
+  value:
+  - "fr-ca"
+  overridable: false
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
+    status: deprecated
+    amendedBy:
+    - collection
+  directory:
+  - value: "urn:uuid:1b71de96-4100-410e-b94d-a7663e988f7f"
+    overridable: true

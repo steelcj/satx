@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:d5d0b6d9-23c3-4a97-953b-890d45cdded7"
+isVersionOf:
+  value: "urn:uuid:0e82164f-999c-4fed-8964-90c1db1e1a14"
+slug:
+  value: "temporada"
+  overridable: true

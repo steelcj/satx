@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:6a882e44-8889-4019-a05f-31d4c2556f64"
+isVersionOf:
+  value: "urn:uuid:78f2394a-cbc0-47f0-ab47-de35baff294d"
+slug:
+  value: "a-propos"
+  overridable: true

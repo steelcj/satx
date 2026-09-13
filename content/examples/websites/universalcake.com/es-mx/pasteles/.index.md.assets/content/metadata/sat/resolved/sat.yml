@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:b40cb7b8-a468-41dd-ac22-174fc63ebb22"
+isVersionOf:
+  value: "urn:uuid:7bb61d56-c397-4344-8411-ec9bec613787"
+slug:
+  value: "pasteles"
+  overridable: true

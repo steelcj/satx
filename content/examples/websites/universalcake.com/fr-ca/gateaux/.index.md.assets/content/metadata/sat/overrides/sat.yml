@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:820f2379-9fcc-4114-b674-e38289bf96ee"
+isVersionOf:
+  value: "urn:uuid:7bb61d56-c397-4344-8411-ec9bec613787"
+slug:
+  value: "gateaux"
+  overridable: true

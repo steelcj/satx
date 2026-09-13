@@ -1,0 +1,16 @@
+title:
+  value:
+  - Examples
+  overridable: true
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+publisher:
+  value:
+  - SAT
+  overridable: true
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
