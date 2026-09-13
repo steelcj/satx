@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:7cdb0d1f-0419-4b74-bf3c-dd0018b14f1c"
+isVersionOf:
+  value: "urn:uuid:a0607636-6660-4a08-9705-7e0f108e94bc"
+slug:
+  value: "sat-instance-file-system-layout"
+  overridable: true

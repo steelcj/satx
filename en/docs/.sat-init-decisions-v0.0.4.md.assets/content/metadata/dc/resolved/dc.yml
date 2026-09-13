@@ -1,0 +1,41 @@
+creator:
+  value:
+  - Christopher Steel
+  overridable: true
+rights:
+  value:
+  - "AGPL-3.0-or-later"
+  overridable: true
+format:
+  value:
+  - text/markdown
+  overridable: true
+title:
+  value:
+  - 'sat init: Decisions'
+  overridable: true
+type:
+  value:
+  - Text
+  overridable: true
+date:
+  value:
+  - '2026-09-13'
+  overridable: true
+language:
+  value:
+  - "en"
+  overridable: false
+publisher:
+  value:
+  - SAT
+  overridable: true
+subject:
+  archive:
+  - value: "urn:uuid:6b1d2cca-dfbd-463d-9dd6-03055d42580f"
+    overridable: true
+  - value: "urn:uuid:d9c59435-45c7-4316-9cff-d7b273a09e76"
+    overridable: true
+  directory:
+  - value: "urn:uuid:98d50aa6-8802-42b6-bc23-a58853c23a83"
+    overridable: true

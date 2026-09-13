@@ -1,0 +1,20 @@
+title:
+  value:
+  - SAT Instance File System Layout
+  overridable: true
+date:
+  value:
+  - '2026-09-13'
+  overridable: true
+type:
+  value:
+  - Text
+  overridable: true
+format:
+  value:
+  - text/markdown
+  overridable: true
+creator:
+  value:
+  - Christopher Steel
+  overridable: true

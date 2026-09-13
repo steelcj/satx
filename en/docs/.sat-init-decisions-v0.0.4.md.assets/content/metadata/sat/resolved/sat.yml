@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:cac67930-8698-4def-9ed8-4f1548e7dfe9"
+isVersionOf:
+  value: "urn:uuid:c223b8f1-d1b4-4831-99bf-6feac567e13e"
+slug:
+  value: "sat-init-decisions"
+  overridable: true
