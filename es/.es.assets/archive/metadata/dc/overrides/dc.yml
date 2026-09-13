@@ -1,0 +1,8 @@
+language:
+  value:
+  - "es"
+  overridable: false
+subject:
+  archive:
+  - value: "urn:uuid:4bdf8c6b-4b39-4946-8108-98f238030ea7"
+    overridable: true
