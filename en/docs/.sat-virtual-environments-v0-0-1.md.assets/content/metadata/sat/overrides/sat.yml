@@ -1,0 +1,7 @@
+identifier:
+  value: "urn:uuid:de0cf34a-bfaa-4a95-b972-9463e3c81fd4"
+isVersionOf:
+  value: "urn:uuid:2d640a60-5ad3-4dc4-840e-9fd62063935c"
+slug:
+  value: "sat-virtual-environments"
+  overridable: true
